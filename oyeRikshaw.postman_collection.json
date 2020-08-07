@@ -1,0 +1,66 @@
+{
+	"id": "f99eece2-9d47-2a00-245f-c24ef2a03820",
+	"name": "oyeRikshaw",
+	"description": "",
+	"order": [
+		"8081cd08-83db-7102-000d-c1e44f72375a",
+		"023ecb32-6a20-e806-d1af-0aa7741d6a41"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1596707241108,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "023ecb32-6a20-e806-d1af-0aa7741d6a41",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/rating/rate",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1596772025360,
+			"name": "http://localhost:8080/rating/getRating/1",
+			"description": "",
+			"collectionId": "f99eece2-9d47-2a00-245f-c24ef2a03820",
+			"responses": [],
+			"rawModeData": "{\n\t\n\t\"sourceUserId\":2,\n\t\"targetUserId\":1,\n\t\"rating\":3\n}"
+		},
+		{
+			"id": "8081cd08-83db-7102-000d-c1e44f72375a",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/rating/getRating/1",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1596769033481,
+			"name": "http://localhost:8080/ratingservice/getRating/1",
+			"description": "",
+			"collectionId": "f99eece2-9d47-2a00-245f-c24ef2a03820",
+			"responses": []
+		}
+	]
+}
