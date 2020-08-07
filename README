@@ -1,0 +1,66 @@
+A.All assumptions you have made
+	1.I have assumed there would be a user table already,(SQL file is attached for sample)
+	2.Each user would have a role rider/driver
+	3.Rating could be for any user rider/driver SO, no seperate API for each user is needed.
+	4.DB:postgres, using default database: postgres
+	5.Testing tool: POSTMAN
+Note:
+I worked only on concepts, 
+So,Exceptions is not handled,
+Not considering authorization and Authentication
+Not worked on validation
+
+B.Approach to your solution
+1.created two table 
+	user
+	rating
+user is mapped by rating by one to many relationship, because 1 user may have many rating
+
+2.There is two type of users in user table differentiated by its role
+	DRIVER,RIDER
+
+3.We have two api
+	1.http://localhost:8080/rating/getRating/2 			GET
+	to get rating of any of the user including driver/rider
+	
+	2.http://localhost:8080/rating/rate					POST
+	BODY:
+		{
+			"sourceUserId":2,
+			"targetUserId":1,
+			"rating":3
+		}
+	its to rate a user to target user
+	
+C.DB schema or setup
+
+CREATE TABLE users
+(
+    id serial,
+    name character varying(255),
+    role character varying(255),
+    CONSTRAINT users_pkey PRIMARY KEY (id)
+)
+
+CREATE TABLE rating
+(
+    id serial,
+    rated_by integer,
+    value integer,
+    user_id integer NOT NULL,
+    CONSTRAINT rating_pkey PRIMARY KEY (id),
+    CONSTRAINT foreignkey_user FOREIGN KEY (user_id)
+        REFERENCES public.users (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+D.STEPS TO RUN:
+	1.import project to eclipse
+	2.validate if you have correct user/password for postgres under application.properties
+	3.run RatingService.application.java
+	4.open postman and import postman file
+	5.hit services
+
+
+
